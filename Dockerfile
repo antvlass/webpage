@@ -3,7 +3,6 @@ FROM ubuntu:latest
 RUN apt-get update \
 && apt-get install -y mkdocs 
 
-COPY mysite /site
 WORKDIR /site
 
 EXPOSE 8000
