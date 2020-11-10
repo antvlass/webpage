@@ -1,9 +1,12 @@
 FROM ubuntu:latest
 
-COPY mysite /mysite
-WORKDIR /mysite
-
 RUN apt-get update \
-&& apt-get install -y mkdocs \
+&& apt-get install -y mkdocs 
 
-CMD mkdocs serve --dev-addr 146.59.231.60:8000 
+COPY mysite /site
+WORKDIR /site
+
+EXPOSE 8000
+ENTRYPOINT ["mkdocs"]
+CMD ["serve", "--dev-addr=0.0.0.0:8000"]
+#CMD /bin/bash
